@@ -1,0 +1,52 @@
+html {
+    font-size: 14px;
+    background-color: #ef2021;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+        color: #ef2021;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 0%;
+  }
+
+
+body {
+    margin-bottom: 60px;
+    font-family: Verdana;
+
+}
+
+.logo-image {
+    transform: scale(0.4);
+    margin-top: -70px;
+    margin-left: -70px;
+    margin-bottom: -70px;
+    overflow: hidden;
+}
+
+.navbar {
+    background-color: #ef2021;
+    color: #f9f6f3;
+}
+
+
+.nav-item {
+    font-size: 12px;
+}
+.container {
+    font-family: Verdana;
+    font-size: 12px;
+    text-align:center;
+}
+
+footer {
+  
+    text-align: center;
+  
+}

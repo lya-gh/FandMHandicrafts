@@ -1,0 +1,60 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Add a new product";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+
+        <p>
+            <h4> ADD A NEW PRODUCT</h4>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                    <div class="form-group">
+                        <label asp-for="ProductImage" class="control-label"></label>
+                        <input asp-for="ProductImage" class="form-control" />
+                        <span asp-validation-for="ProductImage" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProductName" class="control-label"></label>
+                        <input asp-for="ProductName" class="form-control" />
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProductDescription" class="control-label"></label>
+                        <input asp-for="ProductDescription" class="form-control" />
+                        <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProductPrice" class="control-label"></label>
+                        <input asp-for="ProductPrice" class="form-control" />
+                        <span asp-validation-for="ProductPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProductCategory" class="control-label"></label>
+                            <select asp-for="ProductCategory" class="form-select" aria-label="Default select example">
+                                <option selected>Choose a product category</option>
+                                 <option value="1">Jewelry</option>
+                                 <option value="2">Bags</option>
+                                 <option value="3">Home</option>
+                            </select>
+                        <span asp-validation-for="ProductCategory" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" style="margin-top:5px">
+                        <input type="submit" value="Create" class="btn btn-outline-success float-right" style="font-family: Verdana;font-size: 12px;" />
+                        <a class="btn btn-outline-secondary" style="font-family: Verdana;font-size: 12px;" asp-action="ProductList">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

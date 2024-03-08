@@ -1,0 +1,26 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card" style="width: 20rem;text-align:center;">
+            <img src="@Model.ProductImage" class="card-img-top" alt=@Model.ProductName>
+            <div class="card-body">
+            <h5 class="card-title">@Model.ProductName</h5>
+            <hr>
+            <p class="card-text">@Model.ProductDescription</p>
+            <a class="btn btn-secondary" style="background-color: #ef2021;color:#f9f6f3" asp-action="AddItemToCart" asp-controller="Orders" asp-route-id="@Model.Id">
+                <i class="bi bi-bag-plus"></i> Add to cart (@Model.ProductPrice.ToString("c"))
+            </a>
+            </div>
+        </div>
+        </div>
+      <div>
+    <a class="btn" style="width=100px;margin-top:5px;background-color:#ef2021;color:#f9f6f3;font-family: Verdana;font-size: 12px;" asp-controller="Products" asp-action="Index">
+        Back to Shop
+    </a>
+    </div>
+</div>

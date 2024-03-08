@@ -1,0 +1,37 @@
+﻿@using FandMHandicrafts.Data;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item dropdown">       
+            <a class="nav-link dropdown-toggle" style="color:#f9f6f3;" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Manage">Hi @User.Identity?.Name! </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">               
+                <li><a style="font-family:Verdana;font-size:12px" class="dropdown-item"  asp-controller="Orders" asp-action="Index">MY ORDERS</a></li>
+                </ul>
+    </li>
+
+    <li class="nav-item">
+            <a style="color:#f9f6f3;" class=" nav-link" asp-controller="Orders" asp-action="ShoppingCart"><i class="bi bi-bag"></i>  |</a>
+    </li>
+    <li class="nav-item">
+        <form  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" style="color:#f9f6f3; font-size:12px" class=" nav-link btn btn-link">LOGOUT</button>
+        </form>
+    </li>
+}
+else
+{
+        <li class="nav-item">
+            <a style="color:#f9f6f3;" class=" nav-link" asp-controller="Orders" asp-action="ShoppingCart"><i class="bi bi-bag"></i>     |</a>
+        </li>
+    <li class="nav-item">
+            <a style="color:#f9f6f3;" class=" nav-link" asp-area="Identity" asp-page="/Account/Register">REGISTER     </a>
+    </li>
+    <li class="nav-item">
+            <a style="color:#f9f6f3;" class=" nav-link" asp-area="Identity" asp-page="/Account/Login">LOGIN</a>
+    </li>
+}
+</ul>

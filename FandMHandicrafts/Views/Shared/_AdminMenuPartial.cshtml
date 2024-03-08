@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FandMHandicrafts.Data
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result,"Admin"))
+{
+<li class="nav-item dropdown">
+        <a class=" nav-link dropdown-toggle " style="color:#f9f6f3;" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        ADMIN
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+        <li><a style="font-family:Verdana;font-size:12px" class="dropdown-item" asp-area="Admin" asp-controller="Products" asp-action="ProductList" >MANAGE HANDICRAFTS</a></li>
+        <li><a style="font-family:Verdana;font-size:12px" class="dropdown-item" asp-area="Admin" asp-controller="Orders" asp-action="Index">MANAGE ORDERS</a></li>
+    </ul>
+</li>
+}

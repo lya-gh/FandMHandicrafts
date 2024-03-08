@@ -1,0 +1,31 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<p style="font-size: 12px"><i bi bi-heart>All items are made by hand and made with love.</i> <i class="bi bi-heart"></i></p>
+
+<div class="row" style="margin-top:20px">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-xs-6 border-body">
+            <div class="card" style="width: 16rem;margin-bottom:15px">
+                <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" >
+                <img src="@item.ProductImage" style="width:100%; height:200px" class="card-img-top" alt="@item.ProductName">
+                </a>
+                <div class="card-body" style="margin-top:2px">
+
+                    <h6 class="card-title" style="text-align:left;font-size: 14px;text-transform:uppercase">
+                        <b>@item.ProductName  </b>                        
+                    </h6>
+                    <div style="text-align:left;font-size: 12px;margin-top:2px">@item.ProductPrice.ToString("c")</div>
+
+                  
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
